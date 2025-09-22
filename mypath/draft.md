@@ -37,12 +37,32 @@ mlflow ui
 简单的 模型训练
 
 ## model_rolling
+
+
 ## nested_decision_execution
+
+嵌套策略执行
+
 ## online_srv
+
+在线 多任务
+
 ## orderbook_data
+支持非固定频率数据
+
+
 ## portfolio
+
+投资组合优化策略, 优于topk
+
 ## rl
+
+强化学习example ipynb
+
 ## rl_order_execution
+订单执行强化学习示例
+
+
 ## rolling_process_data
 ## run_all_model.py
 ## tutorial
