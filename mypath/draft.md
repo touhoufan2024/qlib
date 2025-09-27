@@ -16,10 +16,9 @@ mlflow ui
 
 # workflow 步骤
 0. 准备 task,  model 和 dateset
-1. 初始化qlib
-2. 初始化 model 和 dataset
-3. 准备 port_analysis_config
-4. 开始 experiment
+1. 初始化qlib;初始化 model 和 dataset
+2. 准备 port_analysis_config
+3. 开始 experiment
     model.fit
     recorder
 
