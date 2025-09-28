@@ -8,6 +8,15 @@
 ```
 
 
+market = "csi300"  股票池: 表示仅使用 沪深300 里的 成分股
+
+benchmark = "SH000300"  性能基准: 表示沪深300指数
+
+
+example_df = dataset.prepare("train")
+print(example_df.head())
+
+
 # 常用命令
 ```
 mlflow ui
@@ -21,6 +30,18 @@ mlflow ui
 3. 开始 experiment
     model.fit
     recorder
+
+
+# record template类
+
+模板类 可以 以一种 特定格式 生成 回测 结果
+
+
+SignalRecord: This class generates the prediction results of the model.
+
+SigAnaRecord: This class generates the IC, ICIR, Rank IC and Rank ICIR of the model.
+
+PortAnaRecord: This class generates the results of backtest. The detailed information about backtest as well as the available strategy, users can refer to Strategy and Backtest.
 
 
 

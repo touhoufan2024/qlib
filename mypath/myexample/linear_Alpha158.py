@@ -132,7 +132,7 @@ dataset = init_instance_by_config(task["dataset"])
 
 # start exp
 with R.start(experiment_name="workflow_linear_Alpha158"):
-    R.log_params(**flatten_dict(CSI300_GBDT_TASK))
+    R.log_params(**flatten_dict(task))
     model.fit(dataset)
     R.save_objects(**{"params.pkl": model})
 
