@@ -3,6 +3,7 @@ qlib_init:
     region: cn
 market: &market csi500
 benchmark: &benchmark SH000905
+experiment_name: "lgbm"
 data_handler_config: &data_handler_config
     start_time: 2008-01-01
     end_time: 2020-08-01

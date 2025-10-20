@@ -130,8 +130,16 @@ qlib.init(provider_uri=provider_uri, region=REG_CN)
 model = init_instance_by_config(task["model"])
 dataset = init_instance_by_config(task["dataset"])
 
+exps = R.list_experiments()
+
+for a, b in exps.items():
+    print(a)
+    print(b)
+
+exit(0)
+
 # start exp
-with R.start(experiment_name="workflow_linear_Alpha158"):
+with R.start(experiment_name="workflow_linear_Alpha158B"):
     R.log_params(**flatten_dict(task))
     model.fit(dataset)
     R.save_objects(**{"params.pkl": model})
