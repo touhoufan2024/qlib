@@ -1,6 +1,7 @@
 
 import os
 import qlib
+import pandas as pd
 from qlib.constant import REG_CN
 from qlib.utils import init_instance_by_config, flatten_dict
 from qlib.workflow import R
@@ -26,6 +27,9 @@ class Task:
         self.indicator_analysis_1day_df = recorder.load_object("portfolio_analysis/indicator_analysis_1day.pkl")
         self.label_df = recorder.load_object("label.pkl")
         self.params_data = recorder.load_object("params.pkl")
+
+        self.pred_label = pd.concat([self.label_df, self.pred_df], axis=1, sort=True).reindex(self.label_df.index)
+        self.pred_label.columns = ['label', 'score'] 
 
         self.output_dir="myanalysis"
 
@@ -57,6 +61,15 @@ class Task:
     def SaveAll(self):
         self.report_figs = analysis_position.report_graph(self.report_normal_1day_df, show_notebook=False)
         self.SaveFigures(self.report_figs, "report")
+        
+        self.risk_figs = analysis_position.risk_analysis_graph(self.port_analysis_1day_df, self.report_normal_1day_df, show_notebook=False)
+        self.SaveFigures(self.risk_figs, "risk_analysis")
+        
+        self.ic_figs = analysis_position.score_ic_graph(self.pred_label, show_notebook=False)
+        self.SaveFigures(self.ic_figs, "score_ic")
+
+        self.model_figs = analysis_model.model_performance_graph(self.pred_label, show_notebook=False)
+        self.SaveFigures(self.model_figs, "model_performance")
 
 
 def GetRecorder(en, rid):
