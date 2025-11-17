@@ -31,7 +31,7 @@ class Task:
         self.pred_label = pd.concat([self.label_df, self.pred_df], axis=1, sort=True).reindex(self.label_df.index)
         self.pred_label.columns = ['label', 'score'] 
 
-        self.output_dir="myanalysis"
+        self.output_dir= os.path.join("myanalysis", recorder.name, recorder.experiment_id, recorder.id)
 
 
     def SaveFigures(self, fig_list, prefix):
